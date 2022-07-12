@@ -1,27 +1,12 @@
 import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
-import { gql, useQuery } from '@apollo/client';
+import {  useQuery } from '@apollo/client';
 import Loader from './Loader';
 import Post from './Post';
-// import QUERY_COLLECTION from './queries/gqlQueryCollection';
+import QUERY_COLLECTION from './queries/gqlQueryCollection';
 
 
 const Posts = () => {
-    const QUERY_COLLECTION = gql`
-    {
-      postsCollection {
-        items {
-          title
-          author
-          publishDate
-          inshorts
-          featuredImage {
-            url
-          }
-        }
-      }
-    }
-  `;
   
   const { data, loading } = useQuery(QUERY_COLLECTION);
   let posts = [];
